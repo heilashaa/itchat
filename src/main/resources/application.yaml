@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/chat?characterEncoding=utf-8&useUnicode=true
+    username: root
+    password: 123456
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  social:
+    facebook:
+      appId: 526762058188362
+      appSecret: b01c60f2ef80147051454f4ceadcf1b6
+    twitter:
+      apiKey: uM2mWowm8xq8o6gp6buywbb51
+      apiSecretKey: GSgplBaE8JJ3N0WkbZHZwRnNvvibTrWJw89AqzeFqBC3BvTgfp
+      accessToken: 1219651235722203136-epn3m5DOQkTj3Ksna6po71medWwPN0
+      accessTokenSecret: 5JQw4p4OgkTXdZTtvXYqDBc3vv1CvE2fkfWSij3pXJMp3
+
+
+app:
+  message:
+    quantity:
+      boot: 20
+
+
+
