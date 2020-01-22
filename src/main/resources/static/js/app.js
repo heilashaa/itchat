@@ -1,6 +1,6 @@
 'use strict';
 
-//delete facebook callback appends
+// delete facebook callback appends
 $(window).on('load', function(e){
     if (window.location.hash == '#_=_') {
         window.location.hash = '';
@@ -8,6 +8,10 @@ $(window).on('load', function(e){
         e.preventDefault();
     }
 })
+
+if(document.getElementById("name").value === '') {
+    alert("!!!");
+}
 
 var usernamePage = document.querySelector('#username-page');
 var chatPage = document.querySelector('#chat-page');
@@ -38,11 +42,11 @@ function connect(event) {
     event.preventDefault();
 }
 
-$(function(){
-    $("#exit").bind('click', function(e){
-        $(location).attr('href','http://localhost:8080/login/twitter');
-    })
-})
+// $(function(){
+//     $("#exit").bind('click', function(e){
+//         $(location).attr('href','http://localhost:8080/login/twitter');
+//     })
+// })
 
 // function disconnect() {
 //     if (stompClient !== null) {

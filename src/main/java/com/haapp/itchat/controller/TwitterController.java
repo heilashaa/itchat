@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class TwitterController {
@@ -32,19 +33,15 @@ public class TwitterController {
         requestToken = oauthOperations.fetchRequestToken( "http://localhost:8080/forward/twitter", null );
         String authorUrl = oauthOperations.buildAuthorizeUrl(requestToken.getValue(), OAuth1Parameters.NONE );
         return "redirect:" + authorUrl;
-
     }
 
     @GetMapping(value = "/forward/twitter")
-    public String prodducer(@RequestParam("oauth_token") String oauthToken,
-                                  @RequestParam("oauth_verifier") String oauthVerifier
-    ) {
+    public String prodducer(@RequestParam("oauth_token") String oauthToken, @RequestParam("oauth_verifier") String oauthVerifier, RedirectAttributes redirectAttributes) {
         OAuth1Operations operations = serviceProvider.getOAuthOperations();
         OAuthToken accessToken = operations.exchangeForAccessToken(new AuthorizedRequestToken(requestToken, oauthVerifier), null);
         Twitter twitter = serviceProvider.getApi(accessToken.getValue(), accessToken.getSecret());
         TwitterProfile profile = twitter.userOperations().getUserProfile();
-//        ModelAndView model = new ModelAndView("details");
-//        model.addObject("userName", profile.getName());
+        redirectAttributes.addFlashAttribute("userName", profile.getName());
         return "redirect:http://localhost:8080";
     }
 }

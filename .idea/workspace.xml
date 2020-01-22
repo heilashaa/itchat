@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="771b1b46-8bd9-4171-a1e9-7113e9876bf9" name="Default Changelist" comment="" />
+    <list default="true" id="771b1b46-8bd9-4171-a1e9-7113e9876bf9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/FacebookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/FacebookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/TwitterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/TwitterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/FacebookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/FacebookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/TwitterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/TwitterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.mustache" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +76,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1Wd9AIw5ErQKiRfaBp9CktDDo5h" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -77,10 +91,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../offermanager-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.18164062" />
     <property name="project.structure.side.proportion" value="0.46117085" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -136,22 +150,34 @@
       <updated>1579468459677</updated>
       <workItem from="1579468462246" duration="1341000" />
       <workItem from="1579470037057" duration="33258000" />
-      <workItem from="1579685230782" duration="25756000" />
+      <workItem from="1579685230782" duration="30760000" />
     </task>
+    <task id="LOCAL-00001" summary="initial">
+      <created>1579726375348</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579726375348</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="200" key="#Inspections" timestamp="1579698266651">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="590" y="200" key="#Inspections/61.24.1859.1056@61.24.1859.1056" timestamp="1579698266651" />
-    <state x="455" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579619195607">
+    <state x="455" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579729311117">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="455" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1579619195607" />
+    <state x="455" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1579729311117" />
     <state x="1249" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1579480562800">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
@@ -160,46 +186,50 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="657" y="63" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1579470382235" />
-    <state x="1077" y="296" key="FileChooserDialogImpl" timestamp="1579726134066">
+    <state x="396" y="133" key="CommitChangelistDialog2" timestamp="1579726374045">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="1077" y="296" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1579726134066" />
-    <state width="1813" height="287" key="GridCell.Tab.0.bottom" timestamp="1579726120037">
+    <state x="396" y="133" key="CommitChangelistDialog2/61.24.1859.1056@61.24.1859.1056" timestamp="1579726374045" />
+    <state x="1077" y="296" key="FileChooserDialogImpl" timestamp="1579729550497">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120037" />
-    <state width="1813" height="287" key="GridCell.Tab.0.center" timestamp="1579726120036">
+    <state x="1077" y="296" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1579729550497" />
+    <state width="1813" height="287" key="GridCell.Tab.0.bottom" timestamp="1579730923687">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120036" />
-    <state width="1813" height="287" key="GridCell.Tab.0.left" timestamp="1579726120036">
+    <state width="1813" height="287" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923687" />
+    <state width="1813" height="287" key="GridCell.Tab.0.center" timestamp="1579730923686">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120036" />
-    <state width="1813" height="287" key="GridCell.Tab.0.right" timestamp="1579726120037">
+    <state width="1813" height="287" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923686" />
+    <state width="1813" height="287" key="GridCell.Tab.0.left" timestamp="1579730923686">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120037" />
-    <state width="1813" height="287" key="GridCell.Tab.1.bottom" timestamp="1579726120038">
+    <state width="1813" height="287" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923686" />
+    <state width="1813" height="287" key="GridCell.Tab.0.right" timestamp="1579730923687">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120038" />
-    <state width="1813" height="287" key="GridCell.Tab.1.center" timestamp="1579726120037">
+    <state width="1813" height="287" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923687" />
+    <state width="1813" height="287" key="GridCell.Tab.1.bottom" timestamp="1579730923688">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120037" />
-    <state width="1813" height="287" key="GridCell.Tab.1.left" timestamp="1579726120037">
+    <state width="1813" height="287" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923688" />
+    <state width="1813" height="287" key="GridCell.Tab.1.center" timestamp="1579730923687">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120037" />
-    <state width="1813" height="287" key="GridCell.Tab.1.right" timestamp="1579726120037">
+    <state width="1813" height="287" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923687" />
+    <state width="1813" height="287" key="GridCell.Tab.1.left" timestamp="1579730923687">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="287" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579726120037" />
-    <state x="590" y="179" key="SettingsEditor" timestamp="1579619007814">
+    <state width="1813" height="287" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923687" />
+    <state width="1813" height="287" key="GridCell.Tab.1.right" timestamp="1579730923687">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="590" y="179" key="SettingsEditor/61.24.1859.1056@61.24.1859.1056" timestamp="1579619007814" />
+    <state width="1813" height="287" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579730923687" />
+    <state x="590" y="179" key="SettingsEditor" timestamp="1579729325881">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state x="590" y="179" key="SettingsEditor/61.24.1859.1056@61.24.1859.1056" timestamp="1579729325881" />
     <state x="1304" y="427" width="381" height="235" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1579476826619">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>

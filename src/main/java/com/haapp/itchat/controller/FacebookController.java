@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class FacebookController {
@@ -39,7 +40,7 @@ public class FacebookController {
     }
 
     @RequestMapping(value = "/forward/facebook")
-    public String prodducer(@RequestParam("code") String authorizationCode) {
+    public String prodducer(@RequestParam("code") String authorizationCode, RedirectAttributes redirectAttributes) {
 
         OAuth2Operations operations = factory.getOAuthOperations();
         AccessGrant accessToken = operations.exchangeForAccess(authorizationCode, "http://localhost:8080/forward/facebook",
@@ -61,6 +62,8 @@ public class FacebookController {
 //        model.addObject("userName", userProfile.getFirstName() + " " + userProfile.getLastName());
 
 //        return model;
+
+        redirectAttributes.addFlashAttribute("userName", userProfile.getFirstName() + "_" + userProfile.getLastName());
 
         return "redirect:http://localhost:8080";
     }
