@@ -5,7 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-//model to creat communicate between client and server
 @Getter
 @Setter
 @Entity

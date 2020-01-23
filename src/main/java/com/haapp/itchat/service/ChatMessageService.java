@@ -2,11 +2,15 @@ package com.haapp.itchat.service;
 
 import com.haapp.itchat.model.ChatMessage;
 import com.haapp.itchat.repository.ChatMessageRepo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
+@Transactional
 public class ChatMessageService {
 
     private final ChatMessageRepo chatMessageRepo;
@@ -15,8 +19,19 @@ public class ChatMessageService {
         this.chatMessageRepo = chatMessageRepo;
     }
 
-    @Transactional
     public void addChatMessage(ChatMessage chatMessage){
         this.chatMessageRepo.save(chatMessage);
+    }
+
+    public List<ChatMessage> getLastMessages(){
+        List<ChatMessage> chatMessages = chatMessageRepo.findTop10ByOrderByIdDesc().
+                stream().
+                sorted(Comparator.comparing(ChatMessage::getId)).
+                collect(Collectors.toList());
+        return chatMessages;
+    }
+
+    public ChatMessage getLastAddedMessage(){
+        return chatMessageRepo.findFirstByOrderByIdDesc();
     }
 }

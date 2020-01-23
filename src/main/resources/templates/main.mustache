@@ -17,29 +17,23 @@
     <link rel="stylesheet" href="/css/app.css" />
 </head>
 <body>
-
+<div class="preloader">
+    <div class="prePreloader"></div>
+</div>
 <div id="username-page">
     <div class="username-page-container">
         <h1>ITCHAT | SIGN IN</h1>
         <button type="submit" id="facebookbutton" class="btn btn-primary btn-lg btn-block username-submit"><i class="fab fa-facebook"></i> sign in with facebook</button>
         <button type="submit" id="twitterbutton" class="btn btn-primary btn-lg btn-block username-submit"><i class="fab fa-twitter"></i> sign in with twitter</button>
-        <form id="usernameForm" name="usernameForm">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" value="{{name}}" />
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg btn-block username-submit">Sign up</button>
-            </div>
-        </form>
+        <input type=hidden id="name" value="{{name}}" />
     </div>
 </div>
-
 <div id="chat-page" class="hidden">
     <div class="chat-container">
         <div class="chat-header">
             <div class="row">
                 <div class="col-md-10">
-                    <h1>IT CHAT</h1>
+                    <h1>IT CHAT | <span id="user"></span></h1>
                 </div>
                 <div class="col-md-2">
                     <button id="exit" type="submit" class="btn btn-primary">Exit</button>
@@ -48,7 +42,7 @@
         </div>
         <div class="connecting">Connecting...</div>
         <ul id="messageArea"></ul>
-        <form id="messageForm" name="messageForm" nameForm="messageForm">
+        <form id="messageForm" name="messageForm">
             <div class="form-group">
                 <div class="input-group clearfix">
                     <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
@@ -58,9 +52,7 @@
         </form>
     </div>
 </div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>

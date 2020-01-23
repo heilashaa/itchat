@@ -230,6 +230,16 @@ button {
     width: 100%;
 }
 
+.preloader {
+    background: linear-gradient(90deg, #f4f4f4 30%, gray 70%);
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom:0;
+    z-index: 100000;
+}
 
 @media screen and (max-width: 730px) {
 

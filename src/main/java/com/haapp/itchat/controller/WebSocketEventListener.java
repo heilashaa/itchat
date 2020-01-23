@@ -12,7 +12,6 @@ import org.springframework.web.socket.messaging.SessionConnectedEvent;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 @Component
-//event listeners to register join/disjoin event
 public class WebSocketEventListener {
 
     private static final Logger logger = LoggerFactory.getLogger(WebSocketEventListener.class);
@@ -22,8 +21,8 @@ public class WebSocketEventListener {
 
     @EventListener
     public void handleWebSocketConnectListener(SessionConnectedEvent event) {
-        logger.info("Received a new web socket connection");
-        //here we don't need broadcast cause we've done it (ChatController)
+
+        logger.info("New web socket connection");
     }
 
     @EventListener
@@ -32,14 +31,11 @@ public class WebSocketEventListener {
 
         String username = (String) headerAccessor.getSessionAttributes().get("username");
         if(username != null) {
-            logger.info("User Disconnected : " + username);
-
+            logger.info("User disconnected : " + username);
             ChatMessage chatMessage = new ChatMessage();
             chatMessage.setType(ChatMessage.MessageType.LEAVE);
             chatMessage.setSender(username);
-
             messagingTemplate.convertAndSend("/topic/public", chatMessage);
-
             //todo отправлять в один адрес отсюда
         }
     }

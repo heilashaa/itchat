@@ -1,21 +1,7 @@
 'use strict';
 
-// delete facebook callback appends
-$(window).on('load', function(e){
-    if (window.location.hash == '#_=_') {
-        window.location.hash = '';
-        history.pushState('', document.title, window.location.pathname);
-        e.preventDefault();
-    }
-})
-
-if(document.getElementById("name").value === '') {
-    alert("!!!");
-}
-
 var usernamePage = document.querySelector('#username-page');
 var chatPage = document.querySelector('#chat-page');
-var usernameForm = document.querySelector('#usernameForm');
 var messageForm = document.querySelector('#messageForm');
 var messageInput = document.querySelector('#message');
 var messageArea = document.querySelector('#messageArea');
@@ -24,55 +10,63 @@ var stompClient = null;
 var username = null;
 var colors = ['#2196F3', '#ff5652', '#ffc107'];
 
+//dalete facebook #_=_, preloader, call connection
+$(window).on('load', function(e){
+    let preloader = $('.preloader');
+    let loader = preloader.find('.prePreloader');
+    loader.fadeOut();
+    preloader.delay(350).fadeOut('slow');
+    if (window.location.hash === '#_=_') {
+        window.location.hash = '';
+        history.pushState('', document.title, window.location.pathname);
+        e.preventDefault();
+    }
+    if($("#name").val().length > 0) {
+        connect(e);
+    }
+})
+
+//create connection
 function connect(event) {
     username = document.querySelector('#name').value.trim();
-
-    if(username) {
-        usernamePage.classList.add('hidden');
-        chatPage.classList.remove('hidden');
-
-        $("#message").focus();
-
-        var socket = new SockJS('/ws');
-        // var socket = new WebSocket('ws://localhost:8080/ws');
-        stompClient = Stomp.over(socket);
-
-        stompClient.connect({}, onConnected, onError);
-    }
-    event.preventDefault();
+    usernamePage.classList.add('hidden');
+    chatPage.classList.remove('hidden');
+    $("#user").append(username);
+    $("#message").focus();
+    var socket = new SockJS('/ws');
+    // var socket = new WebSocket('ws://localhost:8080/ws');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, onConnected, onError);
 }
 
-// $(function(){
-//     $("#exit").bind('click', function(e){
-//         $(location).attr('href','http://localhost:8080/login/twitter');
-//     })
-// })
+// exit
+$(function(){
+    $("#exit").bind('click', function(e){
+        if (stompClient !== null) {
+            stompClient.disconnect();
+        }
+        $(location).attr('href','http://localhost:8080');
+    })
+})
 
-// function disconnect() {
-//     if (stompClient !== null) {
-//         stompClient.disconnect();
-//     }
-//
-//     usernamePage.classList.remove('hidden');
-//     chatPage.classList.add('hidden');
-// }
-
+//on connected handler
 function onConnected() {
-    // Subscribe to the Public Topic
     stompClient.subscribe('/topic/public', onMessageReceived);
-    // Tell your username to the server
-    stompClient.send("/app/chat.addUser",
+    stompClient.send(
+        "/app/chat.addUser",
         {},
         JSON.stringify({sender: username, type: 'JOIN'})
     )
     connectingElement.classList.add('hidden');
 }
 
+//error handler
 function onError(error) {
-    connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
+    connectingElement.textContent = 'Could not connect to WebSocket server!';
     connectingElement.style.color = 'red';
 }
 
+//send message
 function sendMessage(event) {
     var messageContent = messageInput.value.trim();
     if(messageContent && stompClient) {
@@ -87,6 +81,7 @@ function sendMessage(event) {
     event.preventDefault();
 }
 
+//on message received handler
 function onMessageReceived(payload) {
     var message = JSON.parse(payload.body);
 
@@ -100,6 +95,7 @@ function onMessageReceived(payload) {
         message.content = message.sender + ' left!';
     } else {
         messageElement.classList.add('chat-message');
+        messageElement.classList.add(message.id);
 
         var avatarElement = document.createElement('i');
         var avatarText = document.createTextNode(message.sender[0]);
@@ -114,7 +110,11 @@ function onMessageReceived(payload) {
         messageElement.appendChild(usernameElement);
     }
 
+
+    //todo если пользователь совпадает, то добавить delete и edit
+
     var textElement = document.createElement('p');
+    textElement.classList.add(message.id);
     var messageText = document.createTextNode(message.content);
     textElement.appendChild(messageText);
 
@@ -124,6 +124,7 @@ function onMessageReceived(payload) {
     messageArea.scrollTop = messageArea.scrollHeight;
 }
 
+//avatar color
 function getAvatarColor(messageSender) {
     var hash = 0;
     for (var i = 0; i < messageSender.length; i++) {
@@ -133,21 +134,10 @@ function getAvatarColor(messageSender) {
     return colors[index];
 }
 
-usernameForm.addEventListener('submit', connect, true)
 messageForm.addEventListener('submit', sendMessage, true)
 
+// facebook button handler
+$(function(){$("#facebookbutton").bind('click', function(e){$(location).attr('href','http://localhost:8080/login/facebook');})})
 
-$(function(){
-    $("#facebookbutton").bind('click', function(e){
-        $(location).attr('href','http://localhost:8080/login/facebook');
-    })
-})
-
-$(function(){
-    $("#twitterbutton").bind('click', function(e){
-        $(location).attr('href','http://localhost:8080/login/twitter');
-    })
-})
-
-
-
+// twitter button handler
+$(function(){$("#twitterbutton").bind('click', function(e){$(location).attr('href','http://localhost:8080/login/twitter');})})
