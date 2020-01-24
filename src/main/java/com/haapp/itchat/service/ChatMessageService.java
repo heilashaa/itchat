@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,5 +34,16 @@ public class ChatMessageService {
 
     public ChatMessage getLastAddedMessage(){
         return chatMessageRepo.findFirstByOrderByIdDesc();
+    }
+
+    public void deleteMessageById(Long id) {
+        Optional<ChatMessage> chatMessage = chatMessageRepo.findById(id);
+        if(chatMessage.isPresent()){
+            chatMessageRepo.deleteById(id);
+        }
+    }
+
+    public ChatMessage updateMessage(ChatMessage chatMessage){
+        return chatMessageRepo.save(chatMessage);
     }
 }

@@ -8,7 +8,10 @@ var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
 var stompClient = null;
 var username = null;
-var colors = ['#2196F3', '#ff5652', '#ffc107'];
+var colors = [
+    '#2196F3', '#32c787', '#ff5652',
+    '#ffc107', '#ff85af', '#FF9800'
+];
 
 //dalete facebook #_=_, preloader, call connection
 $(window).on('load', function(e){
@@ -52,8 +55,10 @@ $(function(){
 //on connected handler
 function onConnected() {
 
-    stompClient.subscribe('/user/queue/reply', onMessageReceived);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    stompClient.subscribe('/user/queue/reply', onMessageReceived);
     stompClient.subscribe('/topic/public', onMessageReceived);
+    stompClient.subscribe('/topic/delete', onMessageReceivedForDelete);
+    stompClient.subscribe('/topic/edit', onMessageReceivedForEdit);
     stompClient.send(
         "/app/chat.addUser",
         {},
@@ -83,6 +88,22 @@ function sendMessage(event) {
     event.preventDefault();
 }
 
+//edit message
+function onMessageReceivedForEdit(payload) {
+    var message = JSON.parse(payload.body);
+    var editMessageId = '#m' + message.id;
+    // alert('получение'+ editMessageId);
+    document.querySelector(editMessageId).textContent = message.content;
+}
+
+//delete message
+function onMessageReceivedForDelete(payload) {
+    var message = JSON.parse(payload.body);
+    var deleteMessageId = '#cm' + message.id;
+    var chatPage = document.querySelector(deleteMessageId);
+    chatPage.classList.add('hidden');
+}
+
 //on message received handler
 function onMessageReceived(payload) {
     var message = JSON.parse(payload.body);
@@ -97,7 +118,7 @@ function onMessageReceived(payload) {
         message.content = message.sender + ' left!';
     } else {
         messageElement.classList.add('chat-message');
-        messageElement.classList.add(message.id);
+        messageElement.setAttribute('id' , 'cm' + message.id);
 
         var avatarElement = document.createElement('i');
         var avatarText = document.createTextNode(message.sender[0]);
@@ -110,14 +131,35 @@ function onMessageReceived(payload) {
         var usernameText = document.createTextNode(message.sender);
         usernameElement.appendChild(usernameText);
         messageElement.appendChild(usernameElement);
+
+        if(message.sender === username && message.type === 'CHAT'){
+            var editButton = document.createElement('button');
+            editButton.classList.add('btn', 'btn-default', 'btn-xs', 'editbutton');
+            editButton.setAttribute('type' , 'button');
+            editButton.setAttribute('id' , 'e' + message.id);
+            var editButtonText = document.createTextNode('Edit');
+            editButton.append(editButtonText);
+            messageElement.append(editButton);
+
+            var deleteButton = document.createElement('button');
+            deleteButton.classList.add('btn', 'btn-default', 'btn-xs', 'deletebutton');
+            deleteButton.setAttribute('type' , 'button');
+            deleteButton.setAttribute('id' , 'd' + message.id);
+            var deleteButtonText = document.createTextNode('Delete');
+            deleteButton.append(deleteButtonText);
+            messageElement.append(deleteButton);
+        }
+
     }
-    //todo если пользователь совпадает, то добавить delete и edit
     var textElement = document.createElement('p');
-    textElement.classList.add(message.id);
+    textElement.setAttribute('id' , 'm' + message.id);
     var messageText = document.createTextNode(message.content);
     textElement.appendChild(messageText);
 
     messageElement.appendChild(textElement);
+    //todo если пользователь совпадает, то добавить delete и edit
+
+
 
     messageArea.appendChild(messageElement);
     messageArea.scrollTop = messageArea.scrollHeight;
@@ -133,10 +175,73 @@ function getAvatarColor(messageSender) {
     return colors[index];
 }
 
-messageForm.addEventListener('submit', sendMessage, true)
+// sendMessage
+// messageForm.addEventListener('submit', sendMessage, true)
+$(document).on('click', '#sendMessage', function (event) {
+    if(this.classList.contains('edit')) {
+        event.preventDefault();
+    }else{
+        sendMessage(event);
+    }
+})
 
 // facebook button handler
 $(function(){$("#facebookbutton").bind('click', function(e){$(location).attr('href','http://localhost:8080/login/facebook');})})
 
 // twitter button handler
 $(function(){$("#twitterbutton").bind('click', function(e){$(location).attr('href','http://localhost:8080/login/twitter');})})
+
+//delete button handler
+$(document).on('click', '.deletebutton', function (event) {
+    var deleteId = event.target.id.substr(1);
+
+    if(stompClient) {
+        var chatMessage = {
+            id: deleteId,
+            sender: username,
+            type: 'CHAT'
+        };
+        stompClient.send("/app/chat.deleteMessage", {}, JSON.stringify(chatMessage));
+    }
+    event.preventDefault();
+
+})
+
+var editId;
+//edit button handler
+$(document).on('click', '.editbutton', function (event) {
+    var tempButton = document.querySelector('#sendMessage');
+    tempButton.classList.add('edit');
+    // alert('до' + editId)
+    editId = event.target.id.substr(1);
+    messageInput.value = document.querySelector('#m' + editId).textContent.trim();
+    // alert('после' + editId)
+    event.preventDefault();
+
+
+    $(document).on('click', '#sendMessage', function (e) {
+        // alert('начало event' + editId)
+
+        if(this.classList.contains('edit')) {
+            if(stompClient) {
+                var chatMessage = null;
+                chatMessage = {
+                    id: editId,
+                    sender: username,
+                    content: messageInput.value.trim(),
+                    type: 'CHAT'
+                };
+                // alert('отправка' + chatMessage.id)
+                stompClient.send("/app/chat.editMessage", {}, JSON.stringify(chatMessage));
+                messageInput.value = '';
+            }
+        }
+        tempButton.classList.remove('edit');
+        e.preventDefault();
+    });
+
+
+})
+
+
+

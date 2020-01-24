@@ -43,4 +43,20 @@ public class ChatController {
         lastMessages.stream().forEach((c) -> messagingTemplate.convertAndSendToUser(principal.getName(),"/queue/reply", c));
         return chatMessage;
     }
+
+    @MessageMapping("/chat.deleteMessage")
+    @SendTo("/topic/delete")
+    public ChatMessage deleteMessage(@Payload ChatMessage chatMessage) {
+        Long id = (Long) chatMessage.getId();
+        chatMessageService.deleteMessageById(id);
+        return chatMessage;
+    }
+
+    @MessageMapping("/chat.editMessage")
+    @SendTo("/topic/edit")
+    public ChatMessage editMessage(@Payload ChatMessage chatMessage) {
+        return chatMessageService.updateMessage(chatMessage);
+
+    }
+
 }
