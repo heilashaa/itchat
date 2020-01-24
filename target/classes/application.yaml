@@ -7,7 +7,7 @@ spring:
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
-    show-sql: true
+    show-sql: false
   social:
     facebook:
       appId: 526762058188362

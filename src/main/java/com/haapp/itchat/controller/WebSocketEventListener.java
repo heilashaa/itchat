@@ -21,7 +21,6 @@ public class WebSocketEventListener {
 
     @EventListener
     public void handleWebSocketConnectListener(SessionConnectedEvent event) {
-
         logger.info("New web socket connection");
     }
 
@@ -36,7 +35,6 @@ public class WebSocketEventListener {
             chatMessage.setType(ChatMessage.MessageType.LEAVE);
             chatMessage.setSender(username);
             messagingTemplate.convertAndSend("/topic/public", chatMessage);
-            //todo отправлять в один адрес отсюда
         }
     }
 }

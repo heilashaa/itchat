@@ -912,7 +912,7 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="229" parent="2" name="chat_message">
-      <Engine>MyISAM</Engine>
+      <Collation>utf8_general_ci</Collation>
     </table>
     <table id="230" parent="2" name="hibernate_sequence">
       <Engine>MyISAM</Engine>
@@ -927,11 +927,13 @@
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
+      <Collation>utf8mb4_general_ci</Collation>
     </column>
     <column id="233" parent="229" name="sender">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
+      <Collation>utf8mb4_general_ci</Collation>
     </column>
     <column id="234" parent="229" name="type">
       <Position>4</Position>

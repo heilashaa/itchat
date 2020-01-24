@@ -2,33 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="771b1b46-8bd9-4171-a1e9-7113e9876bf9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/temp.mustache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/StompPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1421d889-a0f0-4021-bc13-a5ab479f4c7d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1421d889-a0f0-4021-bc13-a5ab479f4c7d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/ItchatApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/ItchatApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/config/WebSocketConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/FacebookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/FacebookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/TwitterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/TwitterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/WebSocketEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/controller/WebSocketEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/model/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/model/ChatMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/repository/ChatMessageRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/repository/ChatMessageRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/service/ChatMessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/haapp/itchat/service/ChatMessageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/details.mustache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/main.mustache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/temp.mustache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/ItchatApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/ItchatApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/config/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/config/WebSocketConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/ChatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/FacebookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/FacebookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/TwitterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/TwitterController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/WebSocketEventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/controller/WebSocketEventListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/model/ChatMessage$MessageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/model/ChatMessage$MessageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/model/ChatMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/model/ChatMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/repository/ChatMessageRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/repository/ChatMessageRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/haapp/itchat/service/ChatMessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/haapp/itchat/service/ChatMessageService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/details.mustache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/main.mustache" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/main.mustache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +144,9 @@
       </list>
     </option>
   </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES,SHOW_INTERFACES,SHOW_INHERITED" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -166,7 +160,7 @@
       <workItem from="1579468462246" duration="1341000" />
       <workItem from="1579470037057" duration="33258000" />
       <workItem from="1579685230782" duration="38853000" />
-      <workItem from="1579774860870" duration="19920000" />
+      <workItem from="1579774860870" duration="46693000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1579726375348</created>
@@ -182,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579731458092</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="10 message task start">
+      <created>1579801599284</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579801599284</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +205,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <MESSAGE value="social login" />
-    <option name="LAST_COMMIT_MESSAGE" value="social login" />
+    <MESSAGE value="10 message task start" />
+    <option name="LAST_COMMIT_MESSAGE" value="10 message task start" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="200" key="#Inspections" timestamp="1579698266651">
@@ -215,54 +217,54 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="455" y="197" key="#com.intellij.execution.impl.EditConfigurationsDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1579729311117" />
-    <state x="1249" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1579480562800">
+    <state x="1249" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1579828513335">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="1249" y="250" key="#com.intellij.ide.util.MemberChooser/61.24.1859.1056@61.24.1859.1056" timestamp="1579480562800" />
+    <state x="1249" y="250" key="#com.intellij.ide.util.MemberChooser/61.24.1859.1056@61.24.1859.1056" timestamp="1579828513335" />
     <state x="657" y="63" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579470382235">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="657" y="63" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1579470382235" />
-    <state x="396" y="133" key="CommitChangelistDialog2" timestamp="1579801572877">
+    <state x="396" y="133" key="CommitChangelistDialog2" timestamp="1579801599101">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state x="396" y="133" key="CommitChangelistDialog2/61.24.1859.1056@61.24.1859.1056" timestamp="1579801572877" />
+    <state x="396" y="133" key="CommitChangelistDialog2/61.24.1859.1056@61.24.1859.1056" timestamp="1579801599101" />
     <state x="1077" y="296" key="FileChooserDialogImpl" timestamp="1579791533738">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state x="1077" y="296" key="FileChooserDialogImpl/61.24.1859.1056@61.24.1859.1056" timestamp="1579791533738" />
-    <state width="1813" height="307" key="GridCell.Tab.0.bottom" timestamp="1579801530164">
+    <state width="882" height="359" key="GridCell.Tab.0.bottom" timestamp="1579829807214">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530164" />
-    <state width="1813" height="307" key="GridCell.Tab.0.center" timestamp="1579801530164">
+    <state width="882" height="359" key="GridCell.Tab.0.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807214" />
+    <state width="882" height="359" key="GridCell.Tab.0.center" timestamp="1579829807213">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530164" />
-    <state width="1813" height="307" key="GridCell.Tab.0.left" timestamp="1579801530163">
+    <state width="882" height="359" key="GridCell.Tab.0.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807213" />
+    <state width="882" height="359" key="GridCell.Tab.0.left" timestamp="1579829807212">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530163" />
-    <state width="1813" height="307" key="GridCell.Tab.0.right" timestamp="1579801530164">
+    <state width="882" height="359" key="GridCell.Tab.0.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807212" />
+    <state width="882" height="359" key="GridCell.Tab.0.right" timestamp="1579829807213">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530164" />
-    <state width="1813" height="307" key="GridCell.Tab.1.bottom" timestamp="1579801530165">
+    <state width="882" height="359" key="GridCell.Tab.0.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807213" />
+    <state width="882" height="359" key="GridCell.Tab.1.bottom" timestamp="1579829807216">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530165" />
-    <state width="1813" height="307" key="GridCell.Tab.1.center" timestamp="1579801530165">
+    <state width="882" height="359" key="GridCell.Tab.1.bottom/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807216" />
+    <state width="882" height="359" key="GridCell.Tab.1.center" timestamp="1579829807215">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530165" />
-    <state width="1813" height="307" key="GridCell.Tab.1.left" timestamp="1579801530164">
+    <state width="882" height="359" key="GridCell.Tab.1.center/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807215" />
+    <state width="882" height="359" key="GridCell.Tab.1.left" timestamp="1579829807214">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530164" />
-    <state width="1813" height="307" key="GridCell.Tab.1.right" timestamp="1579801530165">
+    <state width="882" height="359" key="GridCell.Tab.1.left/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807214" />
+    <state width="882" height="359" key="GridCell.Tab.1.right" timestamp="1579829807215">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
-    <state width="1813" height="307" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579801530165" />
+    <state width="882" height="359" key="GridCell.Tab.1.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579829807215" />
     <state width="1813" height="355" key="GridCell.Tab.2.bottom" timestamp="1579786254877">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
@@ -279,6 +281,10 @@
       <screen x="61" y="24" width="1859" height="1056" />
     </state>
     <state width="1813" height="355" key="GridCell.Tab.2.right/61.24.1859.1056@61.24.1859.1056" timestamp="1579786254876" />
+    <state x="61" y="199" key="Maven.ArtifactSearchDialog" timestamp="1579822570701">
+      <screen x="61" y="24" width="1859" height="1056" />
+    </state>
+    <state x="61" y="199" key="Maven.ArtifactSearchDialog/61.24.1859.1056@61.24.1859.1056" timestamp="1579822570701" />
     <state x="590" y="179" key="SettingsEditor" timestamp="1579729325881">
       <screen x="61" y="24" width="1859" height="1056" />
     </state>

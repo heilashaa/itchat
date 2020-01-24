@@ -51,6 +51,8 @@ $(function(){
 
 //on connected handler
 function onConnected() {
+
+    stompClient.subscribe('/user/queue/reply', onMessageReceived);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     stompClient.subscribe('/topic/public', onMessageReceived);
     stompClient.send(
         "/app/chat.addUser",
@@ -109,10 +111,7 @@ function onMessageReceived(payload) {
         usernameElement.appendChild(usernameText);
         messageElement.appendChild(usernameElement);
     }
-
-
     //todo если пользователь совпадает, то добавить delete и edit
-
     var textElement = document.createElement('p');
     textElement.classList.add(message.id);
     var messageText = document.createTextNode(message.content);

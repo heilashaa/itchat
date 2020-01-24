@@ -2,11 +2,16 @@ package com.haapp.itchat.controller;
 
 import com.haapp.itchat.model.ChatMessage;
 import com.haapp.itchat.service.ChatMessageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
+import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.stereotype.Controller;
+
+import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class ChatController {
@@ -16,6 +21,9 @@ public class ChatController {
     public ChatController(ChatMessageService chatMessageService) {
         this.chatMessageService = chatMessageService;
     }
+
+    @Autowired
+    private SimpMessageSendingOperations messagingTemplate;
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
@@ -28,12 +36,11 @@ public class ChatController {
     @MessageMapping("/chat.addUser")
     @SendTo("/topic/public")
     public ChatMessage addUser(@Payload ChatMessage chatMessage,
-                               SimpMessageHeaderAccessor headerAccessor) {
-        //add username in WS session. Can add or get headerAccessor properties
+                               SimpMessageHeaderAccessor headerAccessor,
+                               Principal principal) {
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
+        List<ChatMessage> lastMessages = chatMessageService.getLastMessages();
+        lastMessages.stream().forEach((c) -> messagingTemplate.convertAndSendToUser(principal.getName(),"/queue/reply", c));
         return chatMessage;
     }
-//todo добавить с topic/user вывод 20 сообщений при входе SendToUser получив идентификатор сессии
-//todo возможно создать доп.модель для этого
-
 }
