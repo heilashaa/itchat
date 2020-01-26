@@ -148,19 +148,32 @@ function onMessageReceived(payload) {
             var deleteButtonText = document.createTextNode('Delete');
             deleteButton.append(deleteButtonText);
             messageElement.append(deleteButton);
+
+
+        }
+
+        if(message.sender === username && message.type === 'PICT'){
+            var deleteButton = document.createElement('button');
+            deleteButton.classList.add('btn', 'btn-default', 'btn-xs', 'deletebutton');
+            deleteButton.setAttribute('type' , 'button');
+            deleteButton.setAttribute('id' , 'd' + message.id);
+            var deleteButtonText = document.createTextNode('Delete');
+            deleteButton.append(deleteButtonText);
+            messageElement.append(deleteButton);
         }
 
     }
     var textElement = document.createElement('p');
     textElement.setAttribute('id' , 'm' + message.id);
-    var messageText = document.createTextNode(message.content);
-    textElement.appendChild(messageText);
-
+    if(message.type === 'PICT'){
+        var textElement = document.createElement('img');
+        textElement.setAttribute('id' , 'm' + message.id);
+        textElement.setAttribute('src' , message.content);
+    }else{
+        var messageText = document.createTextNode(message.content);
+        textElement.appendChild(messageText);
+    }
     messageElement.appendChild(textElement);
-    //todo если пользователь совпадает, то добавить delete и edit
-
-
-
     messageArea.appendChild(messageElement);
     messageArea.scrollTop = messageArea.scrollHeight;
 }
@@ -239,9 +252,77 @@ $(document).on('click', '.editbutton', function (event) {
         tempButton.classList.remove('edit');
         e.preventDefault();
     });
-
-
 })
 
+/////////////////
+//drag and drop//
+/////////////////
+const cloudName = 'donmgpkp9';
+const unsignedUploadPreset = 'xqnn3gbf';
+var fileElem = document.getElementById("fileElem"),
+    urlSelect = document.getElementById("urlSelect");
+var picture = '';
+urlSelect.addEventListener("click", function(e) {
+    uploadFile('https://res.cloudinary.com/demo/image/upload/sample.jpg')
+    e.preventDefault();
+}, false);
+// ************************ Drag and drop ***************** //
+function dragover(e) {
+    e.stopPropagation();
+    e.preventDefault();
+}
+var dropbox = document.getElementById("dropbox");
+dropbox.addEventListener("dragover", dragover, false);
+dropbox.addEventListener("drop", drop, false);
+function drop(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    var dt = e.dataTransfer;
+    var files = dt.files;
+    handleFiles(files);
+}
+// *********** Upload file to Cloudinary ******************** //
+function uploadFile(file) {
+    var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+    var xhr = new XMLHttpRequest();
+    var fd = new FormData();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.onreadystatechange = function(e) {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = JSON.parse(xhr.responseText);
+            var url = response.secure_url;
+            var tokens = url.split('/');
+            tokens.splice(-2, 0, 'w_150,c_scale');
+            var img = new Image();
+            img.src = tokens.join('/');
+            img.alt = response.public_id;
 
+            //send on server
+            if(stompClient) {
+                var chatMessage = {
+                    sender: username,
+                    content: img.getAttribute('src'),
+                    type: 'PICT'
+                };
+                stompClient.send("/app/chat.sendMessage", {}, JSON.stringify(chatMessage));
+            }
+
+        }
+    };
+    fd.append('upload_preset', unsignedUploadPreset);
+    fd.append('tags', 'browser_upload');
+    fd.append('file', file);
+    xhr.send(fd);
+
+
+
+}
+// *********** Handle selected files ******************** //
+var handleFiles = function(files) {
+    for (var i = 0; i < files.length; i++) {
+        uploadFile(files[i]);
+
+    }
+};
 
