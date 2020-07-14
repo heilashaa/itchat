@@ -35,11 +35,16 @@ public class TwitterController {
     }
 
     @GetMapping(value = "/forward/twitter")
-    public String prodducer(@RequestParam("oauth_token") String oauthToken, @RequestParam("oauth_verifier") String oauthVerifier, RedirectAttributes redirectAttributes) {
+    public String prodducer(
+            @RequestParam("oauth_token") String oauthToken,
+            @RequestParam("oauth_verifier") String oauthVerifier,
+            RedirectAttributes redirectAttributes) {
         OAuth1Operations operations = serviceProvider.getOAuthOperations();
         OAuthToken accessToken = operations.exchangeForAccessToken(new AuthorizedRequestToken(requestToken, oauthVerifier), null);
         Twitter twitter = serviceProvider.getApi(accessToken.getValue(), accessToken.getSecret());
+
         TwitterProfile profile = twitter.userOperations().getUserProfile();
+        TwitterProfile profile1 = twitter.userOperations().getUserProfile();
         redirectAttributes.addFlashAttribute("userName", profile.getName());
         return "redirect:http://localhost:8080";
     }

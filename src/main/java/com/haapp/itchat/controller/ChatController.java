@@ -33,30 +33,30 @@ public class ChatController {
         return chatMessage;
     }
 
-    @MessageMapping("/chat.addUser")
-    @SendTo("/topic/public")
-    public ChatMessage addUser(@Payload ChatMessage chatMessage,
-                               SimpMessageHeaderAccessor headerAccessor,
-                               Principal principal) {
-        headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
-        List<ChatMessage> lastMessages = chatMessageService.getLastMessages();
-        lastMessages.stream().forEach((c) -> messagingTemplate.convertAndSendToUser(principal.getName(),"/queue/reply", c));
-        return chatMessage;
-    }
-
-    @MessageMapping("/chat.deleteMessage")
-    @SendTo("/topic/delete")
-    public ChatMessage deleteMessage(@Payload ChatMessage chatMessage) {
-        Long id = (Long) chatMessage.getId();
-        chatMessageService.deleteMessageById(id);
-        return chatMessage;
-    }
-
-    @MessageMapping("/chat.editMessage")
-    @SendTo("/topic/edit")
-    public ChatMessage editMessage(@Payload ChatMessage chatMessage) {
-        return chatMessageService.updateMessage(chatMessage);
-
-    }
+///*    @MessageMapping("/chat.addUser")
+//    @SendTo("/topic/public")
+//    public ChatMessage addUser(@Payload ChatMessage chatMessage,
+//                               SimpMessageHeaderAccessor headerAccessor,
+//                               Principal principal) {
+//        headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
+//        List<ChatMessage> lastMessages = chatMessageService.getLastMessages();
+//        lastMessages.stream().forEach((c) -> messagingTemplate.convertAndSendToUser(principal.getName(),"/queue/reply", c));
+//        return chatMessage;
+//    }
+//
+//    @MessageMapping("/chat.deleteMessage")
+//    @SendTo("/topic/delete")
+//    public ChatMessage deleteMessage(@Payload ChatMessage chatMessage) {
+//        Long id = (Long) chatMessage.getId();
+//        chatMessageService.deleteMessageById(id);
+//        return chatMessage;
+//    }
+//
+//    @MessageMapping("/chat.editMessage")
+//    @SendTo("/topic/edit")
+//    public ChatMessage editMessage(@Payload ChatMessage chatMessage) {
+//        return chatMessageService.updateMessage(chatMessage);
+//
+//    }*/
 
 }

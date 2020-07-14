@@ -3,7 +3,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/chat?characterEncoding=utf-8&useUnicode=true
     username: root
-    password: 123456
+    password: Aa123456
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
